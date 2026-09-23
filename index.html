@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <link rel="stylesheet" href="css/portfolio.css">
+    <script src="js/script.js" defer></script>
+</head>
+
 <body>
     <header>
         <div class="header-inner">
@@ -28,13 +39,13 @@
 
     <main>
         <section class="hero" id="home">
-            <div class="inner">
+            <div class="inner hero-inner">
                 <div class="text-box">
                     <p class="sub-text">FRONT END DEVELOPER</p>
 
                     <h2 class="main-text">
                         생각한 것을<br>
-                        <div class="point-text">화면 너머의 경험</div>으로 만듭니다.
+                        <span class="point-text">화면 너머의 경험</span>으로 <br>만듭니다.
                     </h2>
 
                     <p class="info-text">
@@ -42,10 +53,16 @@
                         직접 구현하며 해결하는 프론트엔드 개발자입니다.
                     </p>
 
-                    <a href="#projects" class="main-btn">
-                        PROJECTS
-                        <img src="./img/right.png" alt="">
-                    </a>
+                    <div class="btn-box">
+                        <a href="#projects" class="main-btn">
+                            <p class="btn-text">PROJECTS</p>
+                            <img src="./img/right.png" alt="">
+                        </a>
+                        <a href="./resume/KimJaehwan_Resume.pdf" class="resume-btn" download>
+                            <p class="resume-text">이력서 다운로드</p>
+                            <img src="./img/download.png" alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -173,17 +190,142 @@
                 </ul>
             </div>
         </section>
-
+        <!-- projects 영역 -->
         <section class="projects" id="projects">
             <div class="inner projects-inner">
                 <div class="projects-header">
-                    <h2 class="section-title">PROJECTS</h2>
-                    <div class="projects-list">
-                        <button type="button" class="filter-btn active" data-filter="all"
-                            aria-pressed="true">RECORD</button>
+                    <h2 class="project-title">PROJECTS</h2>
+                    <div class="projects-filter">
+                        <button class="filter-btn" type="button">All</button>
+                        <button class="filter-btn" type="button">Team</button>
+                        <button class="filter-btn" type="button">React</button>
+                        <button class="filter-btn" type="button">JS</button>
                     </div>
                 </div>
+                <div class="text-box">
+                    <p class="point-text">직접 고민하고 구현한 프로젝트입니다.</p>
+                    <p class="main-text">
+                        기획부터 화면 구현, 기능 개발까지 경험하며<br>문제를 해결하는 과정을 프로젝트에 담았습니다.
+                    </p>
+                </div>
+                <ul class="projects-list">
+                    <li class="projects-item">
+                        <a href="">
+                            <div class="img-box">
+                                <img src="./img/project-record.png" alt="프로젝트 레코드 이미지">
+                            </div>
+                            <div class="text-box">
+                                <h3 class="projects-name"> RE:CORD</h3>
+                                <p class="project-info">과거를 기록하는 추억의 아카이브 웹 서비스</p>
+                                <ul class="project-tags">
+                                    <li class="project-tag">HTML</li>
+                                    <li class="project-tag">CSS</li>
+                                    <li class="project-tag">JS</li>
+                                </ul>
+                                <span class="project-btn"><img src="./img/right.png" alt=""></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="projects-item">
+                        <a href="">
+                            <div class="img-box">
+                                <img src="./img/project-Neoulbam.png" alt="프로젝트 너울밤 이미지">
+                            </div>
+                            <div class="text-box">
+                                <h3 class="projects-name">너울밤</h3>
+                                <p class="project-info">게임 요소를 더한 수면 습관 관리 서비스</p>
+                                <ul class="project-tags">
+                                    <li class="project-tag">React</li>
+                                    <li class="project-tag">JS</li>
+                                    <li class="project-tag">API</li>
+                                </ul>
+                                <span class="project-btn"><img src="./img/right.png" alt=""></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="projects-item">
+                        <a href="">
+                            <div class="img-box">
+                                <img src="./img/project-js.png" alt="자바스크립트 프로젝트 이미지">
+                            </div>
+                            <div class="text-box">
+                                <h3 class="projects-name">JavaScript Project</h3>
+                                <p class="project-info">바닐라 자바스크립트로 구현한 웹 프로젝트</p>
+                                <ul class="project-tags">
+                                    <li class="project-tag">HTML</li>
+                                    <li class="project-tag">CSS</li>
+                                    <li class="project-tag">JS</li>
+                                </ul>
+                                <span class="project-btn"><img src="./img/right.png" alt=""></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="projects-item">
+                        <a href="">
+                            <div class="img-box">
+                                <img src="./img/project-react.png" alt="리액트 프로젝트 이미지">
+                            </div>
+                            <div class="text-box">
+                                <h3 class="projects-name">React Project</h3>
+                                <p class="project-info">React로 구현한 인터렉티브 웹 서비스</p>
+                                <ul class="project-tags">
+                                    <li class="project-tag">HTML</li>
+                                    <li class="project-tag">CSS</li>
+                                    <li class="project-tag">React</li>
+                                    <li class="project-tag">API</li>
+                                </ul>
+                                <span class="project-btn"><img src="./img/right.png" alt=""></span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="inner contact-inner">
+                <div class="text-box">
+                    <h2 class="contact-title">CONTACT</h2>
+                    <p class="main-text">함께 성장할 곳을 찾고 있습니다.</p>
+                    <p class="sub-text">배운 것을 직접 구현하며 경험을 쌓아왔습니다.
+                        이제는 팀의 구성원으로 함께 고민하고 만들어가며,
+                        더 나은 사용자 경험을 만드는 사람으로 성장하고 싶습니다.</p>
+                    <div class="link-box">
+                        <a href="GitHub 프로필 주소" target="_blank" rel="noopener noreferrer">
+                            <img src="./img/github.svg" alt="">
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:네이메일주소">
+                            <img src="./img/email.svg" alt="">
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" placeholder="이름을 입력해주세요." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일</label>
+                        <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">메시지</label>
+                        <textarea name="message" id="message" placeholder="메시지를 입력해주세요." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        보내기
+                    </button>
+                </form>
             </div>
         </section>
     </main>
+    <footer class="footer">
+        <div class="inner footer-inner">
+            <p>© 2026 Jaehwan Kim. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
+
+</html>

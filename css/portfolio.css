@@ -2,6 +2,7 @@
 @import url(reset.css);
 @import url(font.css);
 
+
 /* Header 영역 */
 header {
     position: absolute;
@@ -74,6 +75,7 @@ header {
     width: 100%;
     height: 100vh;
     background: url(/img/main-bg.png)no-repeat center/cover;
+    border-bottom: 1px solid #dddddd21;
 }
 
 .hero-inner {
@@ -213,4 +215,125 @@ header {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* About 영역 */
+.about {
+    background: #010815;
+    padding: 70px 0;
+    width: 100%;
+    height: 80vh;
+    border-bottom: 1px solid #dddddd21;
+
+}
+
+.about-inner {
+    max-width: 1620px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: steelblue;
+}
+
+.about-container {
+    display: flex;
+    gap: 50px;
+}
+
+.about-visual {
+    position: relative;
+    width: 560px;
+    height: 510px;
+    overflow: hidden;
+}
+
+.about-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+}
+
+.about-slider img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    border-radius: 5px;
+    object-fit: cover;
+    border: 2px solid #dddddd21;
+}
+
+.about-info {
+    position: relative;
+    margin-right: 50px;
+}
+
+.about-info::after {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+    content: '';
+    width: 2px;
+    height: 470px;
+    background: #dddddd21;
+}
+
+.about-info .about-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: steelblue;
+}
+
+.about-info .about-heading {
+    font-size: 30px;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.about-info .about-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #93A5BC;
+}
+
+.about-point-img img {
+    width: 300px;
+    height: 130px;
+}
+
+.about-points {
+    display: grid;
+    gap: 70px;
+    height: 100%;
+    margin: auto 0;
+}
+
+.about-point::after {
+    display: inline-block;
+    transform: translateY(25px);
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #dddddd21;
+}
+
+.about-point:nth-child(3)::after {
+    display: none;
+}
+
+.about-points .about-point-title {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.about-points .about-point-text {
+    color: #93A5BC;
+
 }

@@ -269,7 +269,7 @@ header {
 
 .about-info {
     position: relative;
-    margin-right: 50px;
+    margin-right: 70px;
 }
 
 .about-info::after {
@@ -310,14 +310,37 @@ header {
 
 .about-points {
     display: grid;
-    gap: 70px;
+    gap: 90px;
     height: 100%;
     margin: auto 0;
 }
 
+.about-point {
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    position: relative;
+}
+
+.about-point .img-box {
+    margin: auto 0;
+    padding: 20px;
+    border: 2px solid #dddddd21;
+    border-radius: 50%;
+}
+
+.about-point .text-box {
+    margin: auto 0;
+}
+
+.about-point img {
+    width: 40px;
+    height: 40px;
+}
+
 .about-point::after {
-    display: inline-block;
-    transform: translateY(25px);
+    position: absolute;
+    bottom: -35px;
     content: '';
     width: 100%;
     height: 2px;
@@ -325,7 +348,7 @@ header {
 }
 
 .about-point:nth-child(3)::after {
-    display: none;
+    display: none
 }
 
 .about-points .about-point-title {
@@ -335,5 +358,6 @@ header {
 
 .about-points .about-point-text {
     color: #93A5BC;
+    line-height: 1.3;
 
 }

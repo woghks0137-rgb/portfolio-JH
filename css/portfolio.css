@@ -672,12 +672,25 @@ header {
     border-radius: 20px;
     padding: 10px 30px;
     background: #06121E;
+    transition: 0.1s;
 }
 
 .projects .filter-btn.on {
     background: linear-gradient(135deg, #7089FC, #6A6EFD, #6F6EF8);
-    color: #e4eaf3;
+    color: #fff;
     border-color: transparent;
+    text-shadow:
+        0 0 5px rgba(120, 150, 255, 0.7),
+        0 0 12px rgba(120, 150, 255, 0.4);
+}
+
+.projects .filter-btn:hover {
+    background: linear-gradient(135deg, #7089FC, #6A6EFD, #6F6EF8);
+    color: #fff;
+    border-color: transparent;
+    text-shadow:
+        0 0 5px rgba(120, 150, 255, 0.7),
+        0 0 12px rgba(120, 150, 255, 0.4);
 }
 
 .projects .point-text {
@@ -695,17 +708,21 @@ header {
     margin-bottom: 70px;
 }
 
+.projects-slider {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0 30px;
+}
+
 .projects .projects-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
-    align-items: center;
+    display: flex;
     gap: 20px;
 }
 
 .projects .projects-item {
+    flex-shrink: 0;
     width: 380px;
-    height: 430px;
+    height: 440px;
     border: 3px solid transparent;
     background:
         linear-gradient(#010815, #010815) padding-box,
@@ -718,9 +735,46 @@ header {
     overflow: hidden;
 }
 
+/* 아이템 hover시 */
+.projects .projects-item:hover {
+    transform: translateY(-10px);
+
+    background:
+        linear-gradient(#010815, #010815) padding-box,
+        linear-gradient(135deg,
+            #b9eaff,
+            #9395ff,
+            #d2f2ff) border-box;
+
+    box-shadow:
+        0 0 20px rgba(115, 170, 255, 0.5),
+        0 0 40px rgba(115, 117, 253, 0.25),
+        0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
 .projects .projects-item .img-box {
+    position: relative;
     width: 100%;
-    height: 60%;
+    height: 59%;
+}
+
+.projects .projects-item .point-title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #adc2de;
+    background: #0E2036;
+    padding: 5px 9px;
+    border-radius: 20px;
+    transition: 0.3s;
+
+}
+
+.projects .projects-item:hover .point-title {
+    color: #fff;
+    text-shadow:
+        0 0 5px rgba(120, 150, 255, 0.7),
+        0 0 12px rgba(120, 150, 255, 0.4);
 }
 
 .projects .projects-item .img-box img {
@@ -730,4 +784,47 @@ header {
 
 .projects .project-btn img {
     width: 20px;
+}
+
+.projects .projects-item .text-box {
+    position: relative;
+    padding: 25px 20px;
+}
+
+.projects .projects-name {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.projects .project-info {
+    font-size: 19px;
+    color: #93A5BC;
+    margin-bottom: 35px;
+}
+
+.projects .project-tags {
+    width: 280px;
+    display: flex;
+    gap: 10px;
+    color: #e4eaf3;
+}
+
+.projects .project-tag {
+    background: #0E2036;
+    padding: 7px 14px;
+    border-radius: 20px;
+}
+
+.projects .project-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 15px;
+    bottom: 22px;
+    padding: 10px 10px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+
 }

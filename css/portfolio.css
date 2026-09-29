@@ -80,7 +80,7 @@ header {
 
 .hero-inner {
     width: 100%;
-    max-width: 1620px;
+    max-width: 1720px;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -222,7 +222,7 @@ header {
     background: #010815;
     padding: 70px 0;
     width: 100%;
-    height: 80vh;
+    min-height: 80vh;
     border-bottom: 1px solid #dddddd21;
 
 }
@@ -297,6 +297,10 @@ header {
     color: #fff;
 }
 
+.about-info .about-heading .point-text {
+    color: #6266f1;
+}
+
 .about-info .about-text {
     font-size: 18px;
     margin-bottom: 20px;
@@ -340,7 +344,7 @@ header {
 
 .about-point::after {
     position: absolute;
-    bottom: -35px;
+    bottom: -50px;
     content: '';
     width: 100%;
     height: 2px;
@@ -360,4 +364,370 @@ header {
     color: #93A5BC;
     line-height: 1.3;
 
+}
+
+/* About 애니메이션 */
+
+/* 나타나기 전 */
+.about .section-title,
+.about .about-label,
+.about .about-heading,
+.about .about-text,
+.about .about-point,
+.about-visual {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* 어바웃에 도달한 뒤 */
+.about.is-visible .section-title,
+.about.is-visible .about-label,
+.about.is-visible .about-heading,
+.about.is-visible .about-text,
+.about.is-visible .about-point,
+.about.is-visible .about-visual {
+    animation: heroFadeUp 0.7s ease forwards;
+}
+
+
+/* 나오는 순서 */
+.about.is-visible .section-title {
+    animation-delay: 0s;
+}
+
+.about.is-visible .about-label {
+    animation-delay: 0.2s;
+}
+
+.about.is-visible .about-heading {
+    animation-delay: 0.4s;
+}
+
+.about.is-visible .about-text:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.about.is-visible .about-text:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.about.is-visible .about-text:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.about.is-visible .about-point:nth-child(1) {
+    animation-delay: 0.7s;
+}
+
+.about.is-visible .about-point:nth-child(2) {
+    animation-delay: 0.9s;
+}
+
+.about.is-visible .about-point:nth-child(3) {
+    animation-delay: 1.1s;
+}
+
+.about-point-img {
+    overflow: hidden;
+}
+
+.about-point-img img {
+    display: block;
+    clip-path: inset(0 100% 0 0);
+}
+
+.about.is-visible .about-point-img img {
+    animation: reveal-sign 1.4s ease forwards;
+    animation-delay: 1.3s;
+}
+
+@keyframes reveal-sign {
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* skills 영역 */
+.skills {
+    background: url(/img/skills-bg.png);
+    padding: 70px 0;
+    width: 100%;
+    min-height: 90vh;
+    border-bottom: 1px solid #dddddd21;
+
+}
+
+.skills-inner {
+    max-width: 1620px;
+    margin: 0 auto;
+}
+
+.skills-heading {
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(to left, #fff, #9bc7ff, #7375fd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.skills .sub-text {
+    font-size: 20px;
+    color: #93A5BC;
+    margin-bottom: 100px;
+}
+
+.skills .skills-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skills-list .skill {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    width: 350px;
+    height: 360px;
+    border: 3px solid transparent;
+    background:
+        linear-gradient(#010815, #010815) padding-box,
+        linear-gradient(135deg, #9bdcff, #7375fd, #b7e8ff) border-box;
+    border-radius: 10px;
+    box-shadow:
+        -6px -6px 14px -10px rgba(120, 190, 255, 0.9),
+        6px 6px 14px -10px rgba(115, 117, 253, 0.9);
+    transition: 0.3s;
+    text-align: center;
+    padding-top: 140px;
+}
+
+.skills-list .skill:hover {
+    transform: translateY(-6px);
+
+    background:
+        linear-gradient(#010815, #010815) padding-box,
+        linear-gradient(135deg,
+            #b9eaff,
+            #9395ff,
+            #d2f2ff) border-box;
+
+    box-shadow:
+        0 0 22px rgba(115, 170, 255, 0.45),
+        0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.skills-list .skill .skill-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #93A5BC;
+    transition: 0.3s;
+}
+
+.skills-list .skill:hover .skill-number {
+    color: #e4eaf3;
+}
+
+.skills-list .skill .img-box {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-52%);
+}
+
+.skills-list .skill img {
+    width: 140px;
+}
+
+.skills-list .skill .skill-item {
+    font-size: 23px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.skills-list .skill:hover .skill-item {
+    color: #7c80ff;
+}
+
+.skills-list .skill .skill-item::after {
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 1px;
+    background: #dddddd21;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.skills-list .skill .skill-name {
+    font-size: 18px;
+    color: #93A5BC;
+    transition: color 0.3s ease;
+}
+
+.skills-list .skill:hover .skill-name {
+    color: #e4eaf3;
+}
+
+/* skills 영역 애니메이션 */
+
+/* skills 영역: 등장 전 */
+.skills .section-title,
+.skills .skills-heading,
+.skills .sub-text,
+.skills-list .skill {
+    opacity: 0;
+    translate: 0 20px;
+}
+
+.skills-list .skill {
+    translate: 0 50px;
+    scale: 0.96;
+}
+
+.skills.is-visible .section-title,
+.skills.is-visible .skills-heading,
+.skills.is-visible .sub-text,
+.skills.is-visible .skill {
+    animation: skillsFadeUp 0.7s ease forwards;
+}
+
+.skills.is-visible .skills-heading {
+    animation-delay: 0.2s;
+}
+
+.skills.is-visible .sub-text {
+    animation-delay: 0.4s;
+}
+
+.skills.is-visible .skill:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.skills.is-visible .skill:nth-child(2) {
+    animation-delay: 0.92s;
+}
+
+.skills.is-visible .skill:nth-child(3) {
+    animation-delay: 1.04s;
+}
+
+.skills.is-visible .skill:nth-child(4) {
+    animation-delay: 1.16s;
+}
+
+@keyframes skillsFadeUp {
+    to {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+/* projects 영역 */
+
+.projects {
+    background: #010815;
+    padding: 120px 0;
+    width: 100%;
+    min-height: 100vh;
+    border-bottom: 1px solid #dddddd21;
+}
+
+.projects-inner {
+    max-width: 1620px;
+    margin: 0 auto;
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.project-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: steelblue;
+}
+
+.projects .projects-filter {
+    display: flex;
+    gap: 20px;
+}
+
+.projects .filter-btn {
+    font-size: 18px;
+    color: #93A5BC;
+    border: 1px solid #93A5BC;
+    border-radius: 20px;
+    padding: 10px 30px;
+    background: #06121E;
+}
+
+.projects .filter-btn.on {
+    background: linear-gradient(135deg, #7089FC, #6A6EFD, #6F6EF8);
+    color: #e4eaf3;
+    border-color: transparent;
+}
+
+.projects .point-text {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.projects .main-text {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #93A5BC;
+    margin-bottom: 70px;
+}
+
+.projects .projects-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.projects .projects-item {
+    width: 380px;
+    height: 430px;
+    border: 3px solid transparent;
+    background:
+        linear-gradient(#010815, #010815) padding-box,
+        linear-gradient(135deg, #9badff, #44458d, #7592f1) border-box;
+    border-radius: 10px;
+    box-shadow:
+        -6px -6px 14px -10px rgba(120, 190, 255, 0.9),
+        6px 6px 14px -10px rgba(115, 117, 253, 0.9);
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.projects .projects-item .img-box {
+    width: 100%;
+    height: 60%;
+}
+
+.projects .projects-item .img-box img {
+    width: 100%;
+    height: 100%;
+}
+
+.projects .project-btn img {
+    width: 20px;
 }

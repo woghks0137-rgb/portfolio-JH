@@ -711,12 +711,13 @@ header {
 .projects-slider {
     width: 100%;
     overflow: hidden;
-    padding: 20px 0 30px;
+    padding: 35px 0 30px;
 }
 
 .projects .projects-list {
     display: flex;
     gap: 20px;
+    transform: translateX(-100px);
 }
 
 .projects .projects-item {
@@ -737,7 +738,7 @@ header {
 
 /* 아이템 hover시 */
 .projects .projects-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
 
     background:
         linear-gradient(#010815, #010815) padding-box,
@@ -784,6 +785,10 @@ header {
 
 .projects .project-btn img {
     width: 20px;
+}
+
+.projects .project-btn:hover {
+    border-color: #9395ff;
 }
 
 .projects .projects-item .text-box {

@@ -35,3 +35,78 @@ const skillsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 skillsObserver.observe(skills);
+
+/* project 영역 */
+const projectsSlider = document.querySelector(".projects-slider");
+const projectsList = document.querySelector(".projects-list");
+const projectsItems = document.querySelectorAll(".projects-item")
+
+projectsItems.forEach((item) => {
+    const cloneItem = item.cloneNode(true)
+    projectsList.appendChild(cloneItem)
+})
+
+const allProjectItems = document.querySelectorAll(".projects-item")
+const loopWidth = (projectsItems[0].getBoundingClientRect().width + 20) * projectsItems.length
+let position = 0;
+function wrapPosition() {
+    // 왼쪽 경계를 넘으면 한 묶음 거리 더하기
+    while (position <= -loopWidth) {
+        position = position + loopWidth;
+    }
+
+    // 오른쪽 경계를 넘으면 한 묶음 거리 빼기
+    while (position > 0) {
+        position = position - loopWidth;
+    }
+}
+
+// 자동 이동
+function moveProject() {
+    position = position - 1;
+
+    wrapPosition();
+
+    projectsList.style.transform = `translateX(${position}px)`;
+}
+let timer2 = setInterval(moveProject, 15);
+let restartTimer;
+allProjectItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+        clearInterval(timer2)
+        clearTimeout(restartTimer)
+    })
+    item.addEventListener("mouseleave", () => {
+        restartTimer = setTimeout(() => {
+            timer2 = setInterval(moveProject, 15);
+        }, 300);
+    })
+})
+
+let isDragging = false;
+let startX = 0;
+let startPosition = 0;
+projectsSlider.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    isDragging = true
+    startX = e.clientX
+    startPosition = position
+    console.log(startX)
+})
+window.addEventListener("mouseup", () => {
+    if (!isDragging) {
+        return;
+    }
+    isDragging = false;
+    console.log(isDragging)
+})
+window.addEventListener("mousemove", (e) => {
+    if (!isDragging) {
+        return;
+    }
+    const distance = e.clientX - startX
+    position = startPosition + distance
+    projectsList.style.transform = (`translateX(${position}px)`)
+    console.log(distance)
+})
+

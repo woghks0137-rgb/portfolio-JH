@@ -110,3 +110,34 @@ window.addEventListener("mousemove", (e) => {
     console.log(distance)
 })
 
+/* Projects 등장 애니메이션 */
+const projects = document.querySelector(".projects");
+
+const projectsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            projects.classList.add("is-visible");
+        }
+    });
+}, { threshold: 0.4 });
+
+projectsObserver.observe(projects);
+
+/* Contact 등장 애니메이션 */
+const contact = document.querySelector(".contact");
+
+const contactObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.2
+        ) {
+            contact.classList.add("is-visible");
+
+            // 한 번 등장하면 감시 종료
+            contactObserver.unobserve(contact);
+        }
+    });
+}, { threshold: 0.4 });
+
+contactObserver.observe(contact);

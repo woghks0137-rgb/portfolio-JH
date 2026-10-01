@@ -437,8 +437,28 @@ header {
 }
 
 .about.is-visible .about-point-img img {
-    animation: reveal-sign 1.4s ease forwards;
-    animation-delay: 1.3s;
+    animation:
+        reveal-sign 1.4s ease 2.5s forwards,
+        aboutSignGlow 0.8s ease 3.2s forwards;
+}
+
+@keyframes aboutSignGlow {
+    0% {
+        clip-path: none;
+        filter: none;
+    }
+
+    /* 사인 가까이에서 반짝 */
+    40% {
+        filter:
+            drop-shadow(0 0 3px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 9px rgba(150, 200, 255, 0.7));
+    }
+
+    /* 작은 잔광 유지 */
+    100% {
+        clip-path: none;
+        filter: drop-shadow(0 0 4px rgba(150, 200, 255, 0.6));
+    }
 }
 
 @keyframes reveal-sign {
@@ -446,6 +466,52 @@ header {
         clip-path: inset(0 0 0 0);
     }
 }
+
+/* About 아이콘 점등 */
+.about.is-visible .about-point .img-box {
+    animation: aboutIconLight 0.3s ease forwards;
+}
+
+/* 아이콘이 등장한 다음 순서대로 켜지기 */
+.about.is-visible .about-point:nth-child(1) .img-box {
+    animation-delay: 1.5s;
+}
+
+.about.is-visible .about-point:nth-child(2) .img-box {
+    animation-delay: 1.9s;
+}
+
+.about.is-visible .about-point:nth-child(3) .img-box {
+    animation-delay: 2.2s;
+}
+
+@keyframes aboutIconLight {
+    0% {
+        border-color: #dddddd21;
+        box-shadow: 0 0 0 transparent;
+        filter: brightness(1);
+    }
+
+    /* 켜지는 순간 반짝 */
+    40% {
+        border-color: #c5eaff;
+        box-shadow:
+            0 0 20px rgba(120, 190, 255, 0.7),
+            0 0 40px rgba(115, 117, 253, 0.35);
+        filter: brightness(1.5);
+    }
+
+    /* 은은한 빛 유지 */
+    100% {
+        border-color: #8fb5ff;
+        box-shadow:
+            0 0 12px rgba(120, 190, 255, 0.4),
+            inset 0 0 8px rgba(120, 190, 255, 0.15);
+        filter: brightness(1.15);
+    }
+}
+
+
 
 /* skills 영역 */
 .skills {
@@ -548,12 +614,13 @@ header {
 
 .skills-list .skill .skill-item {
     font-size: 23px;
-    color: #fff;
+    color: #c6c6cf;
+
     transition: color 0.3s ease;
 }
 
 .skills-list .skill:hover .skill-item {
-    color: #7c80ff;
+    color: #fff;
 }
 
 .skills-list .skill .skill-item::after {
@@ -578,8 +645,6 @@ header {
 }
 
 /* skills 영역 애니메이션 */
-
-/* skills 영역: 등장 전 */
 .skills .section-title,
 .skills .skills-heading,
 .skills .sub-text,
@@ -832,4 +897,337 @@ header {
     border: 1px solid #fff;
     border-radius: 100%;
 
+}
+
+/* Projects 애니메이션 */
+.projects .projects-header,
+.projects .point-text,
+.projects .main-text {
+    opacity: 0;
+}
+
+.projects .projects-slider {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+.projects.is-visible .projects-header,
+.projects.is-visible .point-text,
+.projects.is-visible .main-text {
+    animation: projectFadeUp 0.7s ease forwards;
+}
+
+
+@keyframes projectFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 등장 순서 */
+.projects.is-visible .projects-header {
+    animation-delay: 0.2s;
+}
+
+.projects.is-visible .point-text {
+    animation-delay: 0.4s;
+}
+
+.projects.is-visible .main-text {
+    animation-delay: 0.6s;
+}
+
+.projects.is-visible .projects-slider {
+    animation: projectsCardsIn 0.8s ease 0.8s forwards;
+}
+
+@keyframes projectsCardsIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.88);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* contact 영역 */
+.contact {
+    width: 100%;
+    height: 80vh;
+    background: url(/img/contact-bg02.png)no-repeat center/cover;
+}
+
+.contact-inner {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 80px 100px 80px 100px;
+}
+
+.contact .text-box {
+    width: 100%;
+    max-width: 520px;
+    margin: 70px auto;
+    color: #fff;
+    padding-left: 30px;
+}
+
+.contact .contact-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: steelblue;
+    margin-bottom: 35px;
+}
+
+.contact .main-text {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.contact .sub-text {
+    font-size: 20px;
+    line-height: 1.3;
+    color: #93A5BC;
+    margin-bottom: 100px;
+}
+
+.contact .link-box {
+    display: flex;
+    justify-content: center;
+    padding-right: 100px;
+    gap: 150px;
+}
+
+.contact .link-box img {
+    width: 40px;
+}
+
+.contact .link-box a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    gap: 14px;
+}
+
+/* 폼 전체 박스 */
+.contact-form {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 520px;
+    padding: 28px;
+    display: grid;
+    gap: 22px;
+    align-self: center;
+    justify-self: center;
+    background: rgba(3, 12, 23, 0.75);
+    border: 1px solid #1b3a52;
+    border-radius: 10px;
+}
+
+.contact-form .form-group {
+    display: grid;
+    gap: 10px;
+}
+
+.contact-form label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #e4eaf3;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font: inherit;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    background: #081522;
+    border: 1px solid #244158;
+    border-radius: 6px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #7c91ab;
+}
+
+.contact-form textarea {
+    min-height: 140px;
+    max-height: 300px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #9395ff;
+    box-shadow: 0 0 0 3px rgba(115, 117, 253, 0.15);
+}
+
+/* 보내기 버튼 */
+.contact-form .submit-btn {
+    padding: 15px 20px;
+    font: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #7089fc, #7375fd);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.contact-form .submit-btn:hover {
+    box-shadow: 0 0 18px rgba(115, 117, 253, 0.35);
+}
+
+.contact .img-box {
+    position: relative;
+    display: block;
+
+}
+
+.contact .point-img01 {
+    width: 300px;
+    position: absolute;
+    top: 200px;
+    left: 80px;
+    transform: rotate(-6deg);
+}
+
+.contact .point-img02 {
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    top: 350px;
+    left: 120px;
+    transform: rotate(-4deg);
+}
+
+/* contact영역 애니메이션 */
+/* Contact 등장 전 */
+.contact .contact-title,
+.contact .main-text,
+.contact .sub-text,
+.contact .link-box,
+.contact .contact-form,
+.contact .point-img01 {
+    opacity: 0;
+}
+
+/* 글·폼·문구 등장 */
+.contact.is-visible .contact-title,
+.contact.is-visible .main-text,
+.contact.is-visible .sub-text,
+.contact.is-visible .link-box,
+.contact.is-visible .contact-form,
+.contact.is-visible .point-img01 {
+    animation: contactFadeUp 0.7s ease forwards;
+}
+
+@keyframes contactFadeUp {
+    from {
+        opacity: 0;
+        translate: 0 30px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* 등장 순서 */
+.contact.is-visible .contact-title {
+    animation-delay: 0.1s;
+}
+
+.contact.is-visible .main-text {
+    animation-delay: 0.25s;
+}
+
+.contact.is-visible .sub-text {
+    animation-delay: 0.4s;
+}
+
+.contact.is-visible .link-box {
+    animation-delay: 0.55s;
+}
+
+.contact.is-visible .contact-form {
+    animation-delay: 0.75s;
+}
+
+.contact.is-visible .point-img01 {
+    animation-delay: 1.05s;
+}
+
+/* 사인: 왼쪽부터 펼쳐지며 등장 */
+.contact .point-img02 {
+    clip-path: inset(0 100% 0 0);
+}
+
+.contact.is-visible .point-img02 {
+    animation: contactSignReveal 1.1s ease 1.3s forwards,
+        contactSignGlow 0.8s ease 2.1s forwards;
+}
+
+@keyframes contactSignReveal {
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes contactSignGlow {
+    0% {
+        /* 등장 완료 후 큰 빛이 잘리지 않도록 해제 */
+        clip-path: none;
+        filter: none;
+    }
+
+    /* 크게 반짝 */
+    15% {
+        filter:
+            brightness(1.8) drop-shadow(0 0 10px rgba(255, 255, 255, 1)) drop-shadow(0 0 30px rgba(150, 200, 255, 0.9)) drop-shadow(0 0 55px rgba(115, 117, 253, 0.7));
+    }
+
+    /* 밝은 잔광 유지 */
+    100% {
+        clip-path: none;
+        filter:
+            brightness(1.25) drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(150, 200, 255, 0.7)) drop-shadow(0 0 35px rgba(115, 117, 253, 0.5));
+    }
+}
+
+
+/* footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 10vh;
+    background: #010815;
+    color: #93A5BC;
+    border-top: 1px solid #dddddd21;
 }
